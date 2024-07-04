@@ -2,17 +2,17 @@ export const productos = [
     {
       id: 1,
       nombre: "Mate Argentina",
-      precio: 8500,
+      precio: 5500,
       categoria: "Mates",
       stock: 5,
       descripcion:
-        "Las remeras son pintados a mano.",
+        "Los mates son pintados a mano.",
       img: "https://i.postimg.cc/dtmhGgg6/mateargentina.jpg",
     },
     {
       id: 2,
       nombre: "Cuenco",
-      precio: 13000,
+      precio: 3600,
       categoria: "Cuencos",
       stock: 5,
       descripcion:
@@ -22,7 +22,7 @@ export const productos = [
     {
       id: 3,
       nombre: "Stikers Fútbol",
-      precio: 8900,
+      precio: 100,
       categoria: "Stikers",
       stock: 5,
       descripcion:
@@ -32,7 +32,7 @@ export const productos = [
     {
       id: 4,
       nombre: "Mate Maradona",
-      precio: 9900,
+      precio: 5500,
       categoria: "Mates",
       stock: 5,
       descripcion:
@@ -42,7 +42,7 @@ export const productos = [
     {
       id: 5,
       nombre: "Llaveros",
-      precio: 14900,
+      precio: 1500,
       categoria: "Llaveros",
       stock: 5,
       descripcion:

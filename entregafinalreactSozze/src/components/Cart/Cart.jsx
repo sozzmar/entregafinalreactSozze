@@ -62,7 +62,7 @@ const Cart = () => {
         <Tr>
             <Th><Button onClick={() => clearCart()}>Vaciar carrito </Button></Th>
             <Th><Heading>{getTotal()}</Heading></Th>
-            <Th><Link to=''>Finalizar compra</Link></Th>
+            <Th><Link to='/checkout'>Finalizar compra</Link></Th>
         </Tr>
         </Tfoot>
     </Table>

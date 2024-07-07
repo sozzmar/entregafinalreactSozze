@@ -4,6 +4,8 @@ import { getProductById } from '../../data/asyncBenita'
 import ItemDetail from '../ItemDetail/ItemDetail'
 import { Flex } from '@chakra-ui/react'
 import { FadeLoader } from 'react-spinners'
+import { doc, getDoc } from 'firebase/firestore'
+import { db } from '../../config/firebase'
 
 const ItemDetailContainer = () => {
     const [ producto, setProducto ] = useState({})
@@ -12,7 +14,24 @@ const ItemDetailContainer = () => {
     const navigate = useNavigate() 
 
     useEffect(() => {
-        getProductById(productId)
+
+        const getData = async () => {
+            
+            const queryRef = doc(db, 'productos', productId)
+            
+            const response = await getDoc(queryRef)
+            
+            const newItem = {
+                ...response.data(),
+                id: response.id
+            }
+            setProducto(newItem)
+            setLoading(false)
+        }
+        getData()
+
+
+        /*getProductById(productId)
         .then ((data) => {
             if (!data) {
                 navigate('/*')
@@ -23,18 +42,23 @@ const ItemDetailContainer = () => {
 
         .catch ((error) => console.log(error))
         .finally(()=> setLoading(false))
-
+*/
     },[])
 
     return (
         <>
-            {
+              {
                 loading ? 
-                <Flex justify={'center'} align={'center'} h={'50vh'}>
-                    <FadeLoader color="#36d7b7" />
-                </Flex>   
+                <Flex justify={'center'} align={'center'} h={'90vh'}>
+
+                    <FadeLoader color="#36d7b7" />            
+                </Flex>
                 : 
+                <>
+                <Flex justify={'center'} align={'center'} h={'70vh'}>
                 <ItemDetail {...producto} />
+                </Flex>
+                </>
             }
         </>
     )
